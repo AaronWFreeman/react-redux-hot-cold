@@ -81,20 +81,35 @@ export default class Game extends React.Component {
     const guessCount = guesses.length;
 
     return (
+      // 1. a div is always rendered
+      // 2. the rendered div contains everything else that
+      // gets rendered
       <div>
+      // 3. a Header is always rendered
+      // 4. the rendered Header receives two props
         <Header
+      // 5. when onRestartGame is called, restartGame() is triggered
           onRestartGame={() => this.restartGame()}
+      // 6. when onGenerateAuralUpdate is called, generateAuralUpdate() is triggered
           onGenerateAuralUpdate={() => this.generateAuralUpdate()}
         />
         <main role="main">
+      // 7. A Main element is always rendered inside the rendered div
+      // 8. a GuessSection is always rendered (inside rendered main element)
+      // 9. the rendered GuessSection contains three props
           <GuessSection
+        // jsx curly brace is not destructured, rather it is equivalent to es6's ${}
             feedback={feedback}
             guessCount={guessCount}
+      // 10. when onMakeGuess is called, makeGuess() is triggered
             onMakeGuess={guess => this.makeGuess(guess)}
           />
-          <StatusSection guesses={guesses} 
+      // 11. a StatusSection is always rendered (inside rendered main element)
+      // 12. rendered StatusSection always contains two props
+          <StatusSection guesses={guesses}
             auralStatus={auralStatus}
           />
+      // 13. an InfoSection is always rendered (inside rendered main element)
           <InfoSection />
         </main>
       </div>

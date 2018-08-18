@@ -10,7 +10,7 @@
     "react-test-renderer": "^16.4.2"
   },
   "dependencies": {
-    "jest": "^23.5.0",
+    "jest-cli": "^23.5.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-redux": "^5.0.2",
