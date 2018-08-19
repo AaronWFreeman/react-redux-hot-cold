@@ -3,6 +3,7 @@ import {shallow, mount} from 'enzyme';
 
 import Game from './game';
 import Header from './header';
+import GuessSection from './guess-section';
 
 describe("Game", () => {
   it('Renders without crashing', () => {
@@ -85,21 +86,14 @@ describe("rendered `GuessSection`", () => {
 
 describe("GuessSection", () => {
   it("should call `onMakeGuess` callback", () => {
-    let input = 'foo';
+    let input = '80';
     const guessCallback = jest.fn();
-    const guessWrapper = mount(<GuessSection onMakeGuess={guessCallback} />)
-    guessWrapper.instance().setEditing(true);
-    guessWrapper.find('GuessForm input[type="text"]').instance().value = input;
-    const buttonWrapper = guessWrapper.find('GuessForm button.button');
+    const guessWrapper = mount(<GuessSection onMakeGuess={guessCallback} />);
+    guessWrapper.find('input').at(0).instance().value = input;
+    expect(guessWrapper.find('input').at(0).instance().value).toEqual(input);
+    const buttonWrapper = guessWrapper.find('GuessForm button');
     buttonWrapper.simulate('submit');
     expect(guessCallback).toHaveBeenCalledWith(input);
-
-    // const makeGuessCallback = jest.fn();
-    // const guessSectionWrapper = mount(<GuessSection onMakeGuess={jest.fn()} />);
-    // const buttonWrapper = guessSectionWrapper.find('GuessForm input.text');
-    // expect(buttonWrapper).toHaveLength(1);
-    // buttonWrapper.simulate('submit', { preventDefault: jest.fn() });
-    // expect(jest.fn()).toHaveBeenCalled();
   });
 });
 
