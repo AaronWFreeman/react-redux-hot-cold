@@ -2,6 +2,12 @@ language: node_js
 node_js: node
 cache:
   directories:
-    - node_modules
+  - node_modules
 env:
-  - CI=true
+- CI=true
+deploy:
+  provider: heroku
+  api_key: 28f645a1-4cb0-4b5d-bfe3-bd1f5a8dc5b3
+  app: enigmatic-mountain-90131
+  on:
+    repo: AaronWFreeman/react-hot-cold-testing
