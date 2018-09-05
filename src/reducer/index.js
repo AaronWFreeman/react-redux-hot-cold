@@ -1,4 +1,4 @@
-import { RESTART_GAME, MAKE_GUESS, GENERATE_AURAL_UPDATE } from './actions';
+import { RESTART_GAME, MAKE_GUESS, GENERATE_AURAL_UPDATE } from '../actions';
 
 const initialState = {
   guesses: [],
@@ -28,7 +28,6 @@ export default (state=initialState, action) => {
 
     const difference = Math.abs(guess - this.state.correctAnswer);
 
-    let feedback;
     if (difference >= 50) {
       feedback = 'You\'re Ice Cold...';
     } else if (difference >= 30) {

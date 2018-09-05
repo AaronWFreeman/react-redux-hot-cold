@@ -16,5 +16,4 @@ export default function Game(props) {
         </main>
       </div>
     );
-  }
 }
